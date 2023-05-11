@@ -6,6 +6,7 @@
 
 ```sh
 # curl https://setup-shell.vercel.app | sh -
+curl https://raw.githubusercontent.com/hasez/dotfiles/master/install.sh | sh -
 sh install.sh
 ```
 

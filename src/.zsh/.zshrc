@@ -129,7 +129,7 @@ if command -v powerline-go >/dev/null; then
             -duration $__DURATION \
             -error $__ERRCODE \
             -eval \
-            -modules ssh,cwd,perms,jobs,exit,git,duration \
+            -modules ssh,cwd,perms,jobs,exit,duration,git \
             -newline \
             -numeric-exit-codes \
             -path-aliases "$_path_aliases" \
@@ -181,17 +181,19 @@ function __discover_autoload {
 __discover_autoload
 unset __discover_autoload
 
-bindkey '^[^' cd-home
-bindkey '^^' cd-up
-bindkey '^y' copy-command
-bindkey '^g^r' git-fuzzy-branch
-bindkey '^g^g' git-fuzzy-log
-bindkey '^g^w' git-fuzzy-work-tree
-bindkey '^r' fuzzy-history
-bindkey '^e^r' replace-command
-bindkey '^e^l' ls-now
-bindkey '^|' unpipe
-bindkey '^e^i' toggle-history-ignore
+bindkey '^[^'   cd-home
+bindkey '^^'    cd-up
+bindkey '^y'    copy-command
+bindkey '^g^r'  git-fuzzy-branch
+bindkey '^g^g'  git-fuzzy-log
+bindkey '^g^w'  git-fuzzy-work-tree
+bindkey '^r'    fuzzy-history
+bindkey '^e^r'  replace-command
+bindkey '^e^l'  ls-now
+bindkey '^|'    unpipe
+bindkey '^e^i'  toggle-history-ignore
+bindkey '^[[H'  beginning-of-line
+bindkey '^[[F'  end-of-line
 
 # aliases
 alias grep='grep --color=auto'
