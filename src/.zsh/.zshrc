@@ -204,7 +204,32 @@ if command -v exa >/dev/null 2>&1; then
     alias ls=exa
 fi
 
+# /usr/local/opt/unzip/bin が存在する場合、PATH に追加
+if [ -d /usr/local/opt/unzip/bin ]; then
+    export PATH=/usr/local/opt/unzip/bin:$PATH
+fi
+
+# nodebrew が存在する場合、PATH に追加
+if [ -d $HOME/.nodebrew/current/bin ]; then
+    export PATH=$HOME/.nodebrew/current/bin:$PATH
+fi
+
+if command -v pyenv >/dev/null 2>&1; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init --path)"
+    eval "$(pyenv init -)"
+fi
+
+# gsed
+if command -v gsed >/dev/null 2>&1; then
+    alias sed='gsed'
+fi
+
+
+
 # Your .zshrc localizations
 if [ -f "$ZDOTDIR/.zshrc.local" ]; then
     source "$ZDOTDIR/.zshrc.local"
 fi
+
