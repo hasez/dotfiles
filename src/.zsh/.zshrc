@@ -20,7 +20,7 @@ SAVEHIST=10000
 function zshaddhistory {
     (( $#1 > 3 )) || return 1
     ! [[ "$1" =~ ^\./ ]] || return 1
-    ! [[ "$1" =~ ^(exa|ls) ]] || return 1
+    ! [[ "$1" =~ ^(eza|ls) ]] || return 1
 }
 
 # command_not_found_handler
@@ -55,8 +55,8 @@ zi light z-shell/z-a-bin-gem-node
 zi ice from'gh-r' as'command' mv'bat* bat' sbin'**/bat(.exe|) -> bat'
 zi light @sharkdp/bat
 
-zi ice from'gh-r' as'command' sbin'**/exa -> exa' atclone'cp -vf completions/exa.zsh _exa'
-zi light ogham/exa
+zi ice from'gh-r' as'command' sbin'**/eza -> eza' atclone'cp -vf completions/eza.zsh _eza'
+zi light eza-community/eza
 
 zi ice from'gh-r' as'command' mv'fd* fd' sbin'**/fd(.exe|) -> fd'
 zi light @sharkdp/fd
@@ -199,9 +199,9 @@ bindkey '^[[F'  end-of-line
 alias grep='grep --color=auto'
 alias less='less --tabs=4'
 
-if command -v exa >/dev/null 2>&1; then
-    alias exa='exa --classify --color=always --group-directories-first --group --header --git --time-style long-iso'
-    alias ls=exa
+if command -v eza >/dev/null 2>&1; then
+    alias eza='eza --classify --color=always --group-directories-first --group --header --git --time-style long-iso'
+    alias ls=eza
 fi
 
 # /usr/local/opt/unzip/bin が存在する場合、PATH に追加
@@ -225,11 +225,7 @@ fi
 if command -v gsed >/dev/null 2>&1; then
     alias sed='gsed'
 fi
-
-
-
 # Your .zshrc localizations
 if [ -f "$ZDOTDIR/.zshrc.local" ]; then
     source "$ZDOTDIR/.zshrc.local"
 fi
-
