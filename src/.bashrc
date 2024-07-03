@@ -44,3 +44,7 @@ source ~/src/github.com/momo-lab/bash-abbrev-alias/abbrev-alias.plugin.bash
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/hasegawa.yuichi/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

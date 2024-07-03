@@ -55,7 +55,7 @@ zi light z-shell/z-a-bin-gem-node
 zi ice from'gh-r' as'command' mv'bat* bat' sbin'**/bat(.exe|) -> bat'
 zi light @sharkdp/bat
 
-zi ice from'gh-r' as'command' sbin'**/eza -> eza' atclone'cp -vf completions/eza.zsh _eza'
+zi ice from'gh-r' as'program' sbin'**/eza -> eza' atclone'cp -vf completions/eza.zsh _eza'
 zi light eza-community/eza
 
 zi ice from'gh-r' as'command' mv'fd* fd' sbin'**/fd(.exe|) -> fd'
@@ -225,6 +225,7 @@ fi
 if command -v gsed >/dev/null 2>&1; then
     alias sed='gsed'
 fi
+
 # Your .zshrc localizations
 if [ -f "$ZDOTDIR/.zshrc.local" ]; then
     source "$ZDOTDIR/.zshrc.local"
