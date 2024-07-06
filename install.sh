@@ -76,3 +76,16 @@ if [ ! -e $GIT_CONFIG_LOCAL ]; then
     email = $GIT_AUTHOR_EMAIL
 EOF
 fi
+
+# Install Homebrew
+if [ ! -d /opt/homebrew ]; then
+    mkdir -p /opt/homebrew
+    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash -s -- --prefix=/opt/homebrew
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+    # Install Homebrew packages
+    brew bundle --file="$ROOT/src/Brewfile"
+    # add /opt/homebrew/bin to /etc/paths at head if not exists
+    if ! grep -qxF '/opt/homebrew/bin' /etc/paths; then
+        sudo sed -i '' '1i\ /opt/homebrew/bin' /etc/paths
+    fi
+fi
