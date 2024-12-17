@@ -77,12 +77,12 @@ if [ ! -e "$GIT_CONFIG_LOCAL" ]; then
 
     while [ -z "${GIT_AUTHOR_EMAIL:-}" ]; do
         printf "git config user.email?> "
-        read -r GIT_AUTHOR_EMAIL
+        read -r GIT_AUTHOR_EMAIL || exit 1
     done
 
     while [ -z "${GIT_AUTHOR_NAME:-}" ]; do
         printf "git config user.name?> "
-        read -r GIT_AUTHOR_NAME
+        read -r GIT_AUTHOR_NAME || exit 1
     done
 
     cat << EOF > "$GIT_CONFIG_LOCAL"
