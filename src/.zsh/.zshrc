@@ -65,7 +65,7 @@ zi ice from'gh-r' as'command'
 zi light junegunn/fzf
 
 zi ice from'gh-r' as'command' mv'jq* jq'
-zi light stedolan/jq
+zi light jqlang/jq
 
 zi ice from'gh-r' as'command' mv'hyperfine* hyperfine' sbin'**/hyperfine(.exe|) -> hyperfine'
 zi light @sharkdp/hyperfine
