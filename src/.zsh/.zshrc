@@ -98,6 +98,16 @@ zi from'gh-r' as'command' blockf light-mode for \
     atload'eval "$(zabrze init --bind-keys)"' \
     Ryooooooga/zabrze
 
+# 隠しファイルを表示
+defaults write com.apple.finder AppleShowAllFiles TRUE
+
+# git-secrets
+if command -v git-secrets >/dev/null; then
+    git secrets --register-aws --global
+    git secrets --install ~/.git-templates/git-secrets 2>/dev/null
+    git config --global init.templateDir ~/.git-templates/git-secrets
+fi
+
 # powerline
 if command -v powerline-go >/dev/null; then
     zmodload zsh/datetime
@@ -221,9 +231,14 @@ if command -v pyenv >/dev/null 2>&1; then
     eval "$(pyenv init -)"
 fi
 
-# gsed
+# sed replace to gsed
 if command -v gsed >/dev/null 2>&1; then
     alias sed='gsed'
+fi
+
+# rancher desktop add PATH
+if [ -d ~/.rd/bin ]; then
+    export PATH=$HOME/.rd/bin:$PATH
 fi
 
 # Your .zshrc localizations

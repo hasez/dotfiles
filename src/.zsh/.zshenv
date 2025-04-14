@@ -29,3 +29,7 @@ if [ -d /opt/homebrew ]; then
     export MANPATH=$HOMEBREW_PREFIX/share/man${MANPATH+:$MANPATH}:
     export INFOPATH=$HOMEBREW_PREFIX/share/info:${INFOPATH:-}
 fi
+
+if [ -d $HOME/.local/bin ]; then
+    export PATH=$HOME/.local/bin:$PATH
+fi

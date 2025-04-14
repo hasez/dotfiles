@@ -15,6 +15,7 @@
     textconv = nkf
 [init]
     defaultBranch = main
+	templateDir = /Users/yuichi.hasegawa/.git-templates/git-secrets
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
