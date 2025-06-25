@@ -246,12 +246,15 @@ if [ -f "$ZDOTDIR/.zshrc.local" ]; then
     source "$ZDOTDIR/.zshrc.local"
 fi
 
-# Apple Music の自動起動 無効化
-launchctl unload -w /Library/LaunchAgents/com.apple.music.plist 2>/dev/null
-launchctl disable gui/"$(id -u)"/com.apple.rcd
-launchctl kill SIGTERM gui/"$(id -u)"/com.apple.rcd
+# service の有無 com.apple.rcd
+if launchctl list | grep -q com.apple.rcd; then
+    # Apple Music の自動起動 無効化
+    launchctl unload -w /Library/LaunchAgents/com.apple.music.plist 2>/dev/null
+    launchctl disable gui/"$(id -u)"/com.apple.rcd
+    launchctl kill SIGTERM gui/"$(id -u)"/com.apple.rcd
 
-## 有効化するなら以下を実行
-# launchctl load -w /Library/LaunchAgents/com.apple.music.plist 2>/dev/null
-# launchctl enable gui/"$(id -u)"/com.apple.rcd
-# launchctl kickstart gui/"$(id -u)"/com.apple.rcd
+    ## 有効化するなら以下を実行
+    # launchctl load -w /Library/LaunchAgents/com.apple.music.plist 2>/dev/null
+    # launchctl enable gui/"$(id -u)"/com.apple.rcd
+    # launchctl kickstart gui/"$(id -u)"/com.apple.rcd
+fi
