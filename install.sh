@@ -20,7 +20,7 @@ if [ ! -d "$ROOT" ]; then
 fi
 
 # 必要なディレクトリを作成
-mkdir -p ~/.config ~/.zsh
+mkdir -p ~/.config ~/.zsh ~/.claude
 
 # シンボリックリンク作成関数
 create_link() {
@@ -54,6 +54,7 @@ create_link .gitconfig.local
 create_link .tmux.conf
 create_link .vimrc
 create_link .zshenv
+create_link .claude
 
 # Tmux Plugin Manager のインストール
 if [ ! -d ~/.tmux/plugins/tpm ]; then

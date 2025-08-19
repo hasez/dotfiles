@@ -130,9 +130,9 @@ if command -v powerline-go >/dev/null; then
         local _path_aliases
         _path_aliases=$'~/src/=\ue702 SRC'
         _path_aliases+=$',~/src/github.com=\uf09b GITHUB'
-        _path_aliases+=$',~/Library/Mobile Documents/com~apple~CloudDocs=\uf537 iCloud'
-        _path_aliases+=$',~/Documents=\uf537 Documents'
-        _path_aliases+=$',~/Downloads=\uf6d9 Downloads'
+        _path_aliases+=$',~/Library/Mobile Documents/com~apple~CloudDocs=\uf0c2 iCloud'
+        _path_aliases+=$',~/Documents=\uf15b Documents'
+        _path_aliases+=$',~/Downloads=\uf019 Downloads'
 
         eval "$(powerline-go \
             -cwd-mode semifancy \
@@ -248,8 +248,8 @@ fi
 
 # Apple Music の自動起動 無効化
 launchctl unload -w /Library/LaunchAgents/com.apple.music.plist 2>/dev/null
-launchctl disable gui/"$(id -u)"/com.apple.rcd
-launchctl kill SIGTERM gui/"$(id -u)"/com.apple.rcd
+launchctl disable gui/"$(id -u)"/com.apple.rcd 2>/dev/null
+launchctl kill SIGTERM gui/"$(id -u)"/com.apple.rcd 2>/dev/null
 
 ## 有効化するなら以下を実行
 # launchctl load -w /Library/LaunchAgents/com.apple.music.plist 2>/dev/null
